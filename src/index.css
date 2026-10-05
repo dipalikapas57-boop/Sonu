@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #050204;
+    color: #fce7f3;
+  }
+}
+
+.font-cyber {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinSlowReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rippleCore {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+@keyframes floatParticles {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(8px);
+  }
+}
+
+@keyframes rgbGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spinSlowReverse 18s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spinSlow 4s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: rippleCore 2.2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+.animate-float {
+  animation: floatParticles 6s ease-in-out infinite;
+}
+
+/* RGB Rainbow & Red-Green Hacking Styles */
+.rgb-animated-gradient {
+  background: linear-gradient(90deg, #ff003c, #00ff66, #00f0ff, #ff003c);
+  background-size: 300% 300%;
+  animation: rgbGradientShift 6s ease infinite;
+}
+
+.rgb-text-gradient {
+  background: linear-gradient(90deg, #ff1744, #10b981, #06b6d4, #ff1744);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rgbGradientShift 4s linear infinite;
+}
+
+.rgb-border-glow {
+  position: relative;
+}
+.rgb-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #ff0055, #00ff88, #00d4ff, #ff0055);
+  background-size: 300% 300%;
+  animation: rgbGradientShift 4s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Red & Green Glow Effects */
+.neon-glow-red {
+  box-shadow: 0 0 45px rgba(239, 68, 68, 0.65), 0 0 90px rgba(220, 38, 38, 0.35), inset 0 0 25px rgba(255, 0, 60, 0.4);
+}
+
+.neon-glow-crimson {
+  box-shadow: 0 0 55px rgba(255, 0, 60, 0.8), 0 0 110px rgba(185, 28, 28, 0.4), inset 0 0 35px rgba(255, 23, 68, 0.5);
+}
+
+.neon-glow-matrix-green {
+  box-shadow: 0 0 45px rgba(16, 185, 129, 0.65), 0 0 90px rgba(5, 150, 105, 0.35), inset 0 0 25px rgba(0, 255, 102, 0.4);
+}
+
+.neon-glow-rgb {
+  box-shadow: 0 0 35px rgba(255, 0, 60, 0.5), 0 0 60px rgba(16, 185, 129, 0.4), inset 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.4), inset 0 0 15px rgba(6, 182, 212, 0.2);
+}
+
+.neon-glow-pink {
+  box-shadow: 0 0 45px rgba(236, 72, 153, 0.5), inset 0 0 20px rgba(236, 72, 153, 0.25);
+}
+
+.neon-glow-violet {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.45), inset 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.neon-glow-emerald {
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.45), inset 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Hacker Grid & Scanlines with Dual Red & Green Tint */
+.hacker-grid {
+  background-image: 
+    linear-gradient(to right, rgba(239, 68, 68, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.06) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+}
+
+.hacker-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 60, 0.03) 0px,
+    rgba(255, 0, 60, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+}
+
+/* Glassmorphism with Red & Green Cyberpunk Edge */
+.glass-panel-red {
+  background: rgba(18, 4, 8, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.15);
+}
+
+.glass-panel-rgb {
+  background: rgba(10, 3, 7, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow: 0 10px 35px rgba(220, 38, 38, 0.2), 0 0 20px rgba(16, 185, 129, 0.1);
+}
